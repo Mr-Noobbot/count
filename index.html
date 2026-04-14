@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nepal New Year 2083</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d0500;font-family:Georgia,serif;min-height:100vh;}
+canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.scene{position:relative;z-index:1;text-align:center;padding:1.5rem 1rem 2rem;}
+@keyframes dfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.dy{animation:dfloat 2.5s ease-in-out infinite;display:inline-block;}
+.dy:nth-child(2){animation-delay:.5s}.dy:nth-child(3){animation-delay:1s}.dy:nth-child(4){animation-delay:1.5s}
+@keyframes sblink{0%,100%{opacity:1}50%{opacity:.1}}
+.sep{animation:sblink 1s step-end infinite;font-size:38px;font-weight:bold;color:#fbbf24;line-height:1;padding-bottom:14px;display:inline-block;}
+
+/* Large flip card */
+.lc{width:72px;height:86px;position:relative;perspective:500px;display:inline-block;}
+.lc-t,.lc-b{position:absolute;left:0;right:0;height:50%;overflow:hidden;background:#1a0800;border:1px solid #f59e0b55;}
+.lc-t{top:0;border-radius:8px 8px 0 0;border-bottom:2px solid #f59e0b99;display:flex;align-items:flex-start;justify-content:center;}
+.lc-b{bottom:0;border-radius:0 0 8px 8px;display:flex;align-items:flex-end;justify-content:center;}
+.lc-t span,.lc-b span{font-size:58px;font-weight:bold;color:#fef3c7;line-height:1;}
+.lc-b span{transform:translateY(-50%);}
+.lc-fold{position:absolute;top:50%;left:0;right:0;height:50%;transform-origin:top center;backface-visibility:hidden;background:#1a0800;border:1px solid #f59e0b55;border-radius:0 0 8px 8px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;z-index:2;}
+.lc-fold span{font-size:58px;font-weight:bold;color:#fef3c7;line-height:1;transform:translateY(-50%);}
+.lc-ftop{position:absolute;top:0;left:0;right:0;height:50%;transform-origin:bottom center;backface-visibility:hidden;background:#1a0800;border:1px solid #f59e0b55;border-radius:8px 8px 0 0;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;z-index:3;}
+.lc-ftop span{font-size:58px;font-weight:bold;color:#fef3c7;line-height:1;}
+
+/* Small flip card */
+.sc{width:54px;height:66px;position:relative;perspective:400px;display:inline-block;}
+.sc-t,.sc-b{position:absolute;left:0;right:0;height:50%;overflow:hidden;background:#1a0800;border:1px solid #f59e0b55;}
+.sc-t{top:0;border-radius:7px 7px 0 0;border-bottom:1.5px solid #f59e0b88;display:flex;align-items:flex-start;justify-content:center;}
+.sc-b{bottom:0;border-radius:0 0 7px 7px;display:flex;align-items:flex-end;justify-content:center;}
+.sc-t span,.sc-b span{font-size:44px;font-weight:bold;color:#fef3c7;line-height:1;}
+.sc-b span{transform:translateY(-50%);}
+.sc-fold{position:absolute;top:50%;left:0;right:0;height:50%;transform-origin:top center;backface-visibility:hidden;background:#1a0800;border:1px solid #f59e0b55;border-radius:0 0 7px 7px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;z-index:2;}
+.sc-fold span{font-size:44px;font-weight:bold;color:#fef3c7;line-height:1;transform:translateY(-50%);}
+.sc-ftop{position:absolute;top:0;left:0;right:0;height:50%;transform-origin:bottom center;backface-visibility:hidden;background:#1a0800;border:1px solid #f59e0b55;border-radius:7px 7px 0 0;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;z-index:3;}
+.sc-ftop span{font-size:44px;font-weight:bold;color:#fef3c7;line-height:1;}
+
+.box{background:#1a080099;border:1px solid #f59e0b33;border-radius:14px;padding:.9rem 1.1rem;display:inline-block;}
+</style>
+</head>
+<body>
+<canvas id="fw"></canvas>
+<div class="scene">
+
+  <div style="margin-bottom:.8rem;">
+    <svg class="dy" width="28" height="28" viewBox="0 0 32 32"><ellipse cx="16" cy="22" rx="12" ry="5" fill="#f59e0b"/><ellipse cx="16" cy="20" rx="7" ry="2.5" fill="#fcd34d"/><ellipse cx="23" cy="15" rx="1.3" ry="3.5" fill="#fed7aa"/><ellipse cx="23" cy="13" rx=".9" ry="2" fill="#fffbeb"/></svg>
+    <svg class="dy" style="margin:0 10px;" width="28" height="28" viewBox="0 0 32 32"><ellipse cx="16" cy="22" rx="12" ry="5" fill="#dc2626"/><ellipse cx="16" cy="20" rx="7" ry="2.5" fill="#fca5a5"/><ellipse cx="23" cy="15" rx="1.3" ry="3.5" fill="#fed7aa"/><ellipse cx="23" cy="13" rx=".9" ry="2" fill="#fffbeb"/></svg>
+    <svg class="dy" style="margin:0 10px;" width="28" height="28" viewBox="0 0 32 32"><ellipse cx="16" cy="22" rx="12" ry="5" fill="#7c3aed"/><ellipse cx="16" cy="20" rx="7" ry="2.5" fill="#c4b5fd"/><ellipse cx="23" cy="15" rx="1.3" ry="3.5" fill="#fed7aa"/><ellipse cx="23" cy="13" rx=".9" ry="2" fill="#fffbeb"/></svg>
+    <svg class="dy" width="28" height="28" viewBox="0 0 32 32"><ellipse cx="16" cy="22" rx="12" ry="5" fill="#059669"/><ellipse cx="16" cy="20" rx="7" ry="2.5" fill="#6ee7b7"/><ellipse cx="23" cy="15" rx="1.3" ry="3.5" fill="#fed7aa"/><ellipse cx="23" cy="13" rx=".9" ry="2" fill="#fffbeb"/></svg>
+  </div>
+
+  <div style="font-size:10px;color:#fbbf24;letter-spacing:.2em;margin-bottom:2px;">नेपाली नयाँ वर्ष २०८३</div>
+  <h1 style="font-size:22px;color:#fef3c7;margin-bottom:2px;font-weight:normal;">Nepal Sambat 2083 — Year Progress</h1>
+  <div style="font-size:11px;color:#fcd34d;margin-bottom:1rem;">365 days · Baisakh 1 → Chaitra 30</div>
+
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:.9rem;">
+    <div class="box">
+      <div style="font-size:9px;color:#ef4444;letter-spacing:.15em;margin-bottom:7px;">DAYS GONE IN 2083</div>
+      <div id="gone-row" style="display:flex;gap:4px;justify-content:center;"></div>
+    </div>
+    <div class="box">
+      <div style="font-size:9px;color:#10b981;letter-spacing:.15em;margin-bottom:7px;">DAYS LEFT IN 2083</div>
+      <div id="left-row" style="display:flex;gap:4px;justify-content:center;"></div>
+    </div>
+  </div>
+
+  <div style="max-width:360px;margin:0 auto .8rem;">
+    <div style="display:flex;justify-content:space-between;font-size:10px;color:#fcd34d;margin-bottom:3px;">
+      <span>Baisakh 1</span><span id="pct-lbl" style="color:#fbbf24;font-weight:bold;">0%</span><span>Chaitra 30</span>
+    </div>
+    <div style="background:#1a0800;border-radius:8px;height:12px;border:1px solid #f59e0b33;overflow:hidden;">
+      <div id="pbar" style="height:100%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:8px;width:0%;transition:width .6s;"></div>
+    </div>
+    <div id="yday" style="font-size:11px;color:#fcd34d;margin-top:4px;"></div>
+  </div>
+
+  <div style="margin-bottom:.8rem;">
+    <div style="font-size:9px;color:#fcd34d;letter-spacing:.15em;margin-bottom:5px;">TIME ELAPSED TODAY</div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:5px;">
+      <div id="hrow" style="display:flex;gap:3px;"></div>
+      <span class="sep">:</span>
+      <div id="mrow" style="display:flex;gap:3px;"></div>
+      <span class="sep">:</span>
+      <div id="srow" style="display:flex;gap:3px;"></div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:44px;font-size:9px;color:#fcd34d;margin-top:4px;">
+      <span>HOURS</span><span>MINS</span><span>SECS</span>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+    <div class="box" style="padding:.5rem .9rem;">
+      <div style="font-size:9px;color:#fcd34d;">CURRENT TIME</div>
+      <div id="cur-time" style="font-size:14px;color:#fef3c7;font-family:monospace;">--:--:--</div>
+    </div>
+    <div class="box" style="padding:.5rem .9rem;">
+      <div style="font-size:9px;color:#fcd34d;">SECONDS TODAY</div>
+      <div id="tot-sec" style="font-size:14px;color:#fef3c7;font-family:monospace;">0</div>
+    </div>
+  </div>
+
+  <div style="font-size:12px;color:#fcd34d;margin-top:.8rem;">🪔 शुभ नया वर्ष २०८३ · Shubha Naya Barsha 2083 🪔</div>
+</div>
+
+<script>
+// Fireworks
+const cv=document.getElementById('fw'),cx=cv.getContext('2d');
+let W,H;function rsz(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}rsz();window.addEventListener('resize',rsz);
+const COLS=['#f59e0b','#ef4444','#8b5cf6','#10b981','#f97316','#ec4899','#3b82f6','#fbbf24','#fff'];
+const rox=[],par=[];let lastL=0;
+function nRok(){const r={trail:[]};r.x=W*.1+Math.random()*W*.8;r.y=H;r.tx=W*.1+Math.random()*W*.8;r.ty=H*.05+Math.random()*H*.45;r.c=COLS[Math.floor(Math.random()*COLS.length)];const sp=9+Math.random()*5,dx=r.tx-r.x,dy=r.ty-r.y,d=Math.sqrt(dx*dx+dy*dy);r.vx=dx/d*sp;r.vy=dy/d*sp;return r;}
+function expl(x,y,c){for(let i=0;i<65;i++){const a=Math.random()*Math.PI*2,sp=2+Math.random()*7;par.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,c:Math.random()<.15?'#fff':c,a:1,sz:1.5+Math.random()*3,d:.013+Math.random()*.02,g:.06});}}
+function fwF(ts){requestAnimationFrame(fwF);cx.clearRect(0,0,W,H);if(ts-lastL>700+Math.random()*800){lastL=ts;rox.push(nRok());if(Math.random()<.4)setTimeout(()=>rox.push(nRok()),300);}for(let i=rox.length-1;i>=0;i--){const r=rox[i];r.trail.push({x:r.x,y:r.y});if(r.trail.length>20)r.trail.shift();r.trail.forEach((t,j)=>{cx.beginPath();cx.arc(t.x,t.y,2.5*(j/r.trail.length),0,Math.PI*2);cx.fillStyle=r.c;cx.globalAlpha=(j/r.trail.length)*.8;cx.fill();});cx.globalAlpha=1;cx.beginPath();cx.arc(r.x,r.y,3,0,Math.PI*2);cx.fillStyle='#fff';cx.fill();r.x+=r.vx;r.y+=r.vy;if((r.tx-r.x)**2+(r.ty-r.y)**2<130){expl(r.x,r.y,r.c);rox.splice(i,1);}}for(let i=par.length-1;i>=0;i--){const p=par[i];p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.a-=p.d;if(p.a<=0){par.splice(i,1);continue;}cx.beginPath();cx.arc(p.x,p.y,p.sz,0,Math.PI*2);cx.fillStyle=p.c;cx.globalAlpha=p.a;cx.fill();}cx.globalAlpha=1;}
+requestAnimationFrame(fwF);
+
+// Flip card builder
+function mkCard(large){
+  const p=large?'lc':'sc';
+  const d=document.createElement('div');d.className=p;
+  d.innerHTML=`<div class="${p}-t"><span class="vt">0</span></div><div class="${p}-b"><span class="vb">0</span></div><div class="${p}-fold"><span class="vf">0</span></div><div class="${p}-ftop"><span class="vft">0</span></div>`;
+  return{el:d,cur:null,busy:false,vt:d.querySelector('.vt'),vb:d.querySelector('.vb'),fold:d.querySelector('.'+p+'-fold'),ftop:d.querySelector('.'+p+'-ftop'),vf:d.querySelector('.vf'),vft:d.querySelector('.vft')};
+}
+function flipTo(c,v){
+  if(c.busy||c.cur===v)return;
+  const old=c.cur||v;c.busy=true;
+  c.vft.textContent=old;c.vf.textContent=old;c.vt.textContent=v;
+  c.ftop.style.transition='none';c.ftop.style.transform='rotateX(0deg)';
+  c.fold.style.transition='none';c.fold.style.transform='rotateX(0deg)';
+  requestAnimationFrame(()=>{c.ftop.style.transition='transform .22s ease-in';c.ftop.style.transform='rotateX(-90deg)';});
+  setTimeout(()=>{c.vf.textContent=v;c.fold.style.transition='transform .22s ease-out';c.fold.style.transform='rotateX(-90deg)';requestAnimationFrame(()=>{c.fold.style.transition='transform .22s ease-out';c.fold.style.transform='rotateX(0deg)';});},220);
+  setTimeout(()=>{c.vb.textContent=v;c.ftop.style.transition='none';c.ftop.style.transform='rotateX(0deg)';c.fold.style.transition='none';c.fold.style.transform='rotateX(0deg)';c.cur=v;c.busy=false;},450);
+}
+function buildRow(id,n,large){const row=document.getElementById(id),cards=[];for(let i=0;i<n;i++){const c=mkCard(large);row.appendChild(c.el);cards.push(c);}return cards;}
+function setRow(cards,str){str.padStart(cards.length,'0').split('').forEach((ch,i)=>flipTo(cards[i],ch));}
+
+const gC=buildRow('gone-row',3,true);
+const lC=buildRow('left-row',3,true);
+const hC=buildRow('hrow',2,false);
+const mC=buildRow('mrow',2,false);
+const sC=buildRow('srow',2,false);
+
+const YSTART=new Date('2026-04-14T00:00:00');
+const TOTAL=365;
+
+function tick(){
+  const now=new Date();
+  const gone=Math.min(TOTAL,Math.floor(Math.max(0,now-YSTART)/86400000)+1);
+  const left=TOTAL-gone;
+  setRow(gC,String(gone));
+  setRow(lC,String(left));
+  const pct=(gone/TOTAL*100).toFixed(1);
+  document.getElementById('pbar').style.width=pct+'%';
+  document.getElementById('pct-lbl').textContent=pct+'%';
+  document.getElementById('yday').textContent='Day '+gone+' of '+TOTAL+' · '+left+' days remaining';
+
+  const mid=new Date(now);mid.setHours(0,0,0,0);
+  const ts=Math.floor((now-mid)/1000);
+  setRow(hC,String(Math.floor(ts/3600)).padStart(2,'0'));
+  setRow(mC,String(Math.floor((ts%3600)/60)).padStart(2,'0'));
+  setRow(sC,String(ts%60).padStart(2,'0'));
+
+  const h12=now.getHours()%12||12,ap=now.getHours()<12?'AM':'PM';
+  document.getElementById('cur-time').textContent=String(h12).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':'+String(now.getSeconds()).padStart(2,'0')+' '+ap;
+  document.getElementById('tot-sec').textContent=ts.toLocaleString();
+}
+tick();setInterval(tick,400);
+</script>
+</body>
+</html>
